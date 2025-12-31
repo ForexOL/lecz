@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy Questionnaire | Lecz(U) Limited</title>
+  <meta name="description" content="Privacy Policy Questionnaire for Umoja Campaign - Your data protection matters to us.">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: hsl(210, 25%, 97%);
+      --foreground: hsl(210, 50%, 10%);
+      --card: hsl(0, 0%, 100%);
+      --primary: hsl(210, 100%, 20%);
+      --primary-foreground: hsl(0, 0%, 100%);
+      --secondary: hsl(210, 40%, 96%);
+      --muted: hsl(210, 20%, 94%);
+      --muted-foreground: hsl(210, 20%, 45%);
+      --accent: hsl(45, 100%, 50%);
+      --accent-foreground: hsl(210, 100%, 15%);
+      --border: hsl(210, 20%, 88%);
+      --navy: hsl(210, 100%, 12%);
+      --deep-blue: hsl(210, 100%, 20%);
+      --destructive: hsl(0, 84%, 60%);
+      --success: hsl(142, 76%, 36%);
+      --radius: 0.75rem;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--background); color: var(--foreground); line-height: 1.6; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; line-height: 1.2; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+
+    /* Navbar */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 2rem; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); border-bottom: 1px solid var(--border); }
+    .navbar-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; max-width: 1400px; margin: 0 auto; }
+    .logo { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.25rem; color: var(--primary); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { font-weight: 500; color: var(--foreground); transition: color 0.3s; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta { padding: 0.75rem 1.5rem; background: linear-gradient(135deg, var(--accent), hsl(40, 90%, 45%)); color: var(--navy); border-radius: var(--radius); font-weight: 600; }
+
+    /* Hero */
+    .page-hero { padding: 8rem 0 5rem; background: linear-gradient(180deg, var(--navy) 0%, var(--deep-blue) 100%); color: var(--primary-foreground); position: relative; overflow: hidden; text-align: center; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255, 215, 0, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 215, 0, 0.03) 1px, transparent 1px); background-size: 60px 60px; opacity: 0.3; }
+    .page-hero .container { position: relative; z-index: 1; }
+    .page-hero .badge { display: inline-block; padding: 0.5rem 1rem; background: rgba(255, 215, 0, 0.2); color: var(--accent); border-radius: 100px; font-size: 0.875rem; font-weight: 600; margin-bottom: 1.5rem; }
+    .page-hero h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1.5rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+    .text-gradient { background: linear-gradient(135deg, var(--accent), hsl(40, 90%, 45%)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-hero p { font-size: 1.25rem; color: rgba(255, 255, 255, 0.7); max-width: 700px; margin: 0 auto 2rem; }
+
+    /* Section */
+    .section { padding: 6rem 0; }
+    .section-light { background: var(--background); }
+    .section-alt { background: var(--secondary); }
+    .section-header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
+    .section-badge { display: inline-block; padding: 0.375rem 1rem; background: rgba(0, 51, 102, 0.1); color: var(--primary); border-radius: 100px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+    .section-header h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+    .section-header p { color: var(--muted-foreground); font-size: 1.125rem; }
+
+    /* Questionnaire Styles */
+    .questionnaire-container { max-width: 800px; margin: 0 auto; }
+    
+    .privacy-notice-box {
+      background: rgba(255, 215, 0, 0.05);
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .privacy-notice-box h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .privacy-notice-box h3 svg {
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    
+    .privacy-points {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+    
+    .privacy-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      color: var(--muted-foreground);
+    }
+    
+    .privacy-points li svg {
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    
+    .highlight {
+      background: rgba(255, 215, 0, 0.1);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* Form Styles */
+    .question-group {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    .question-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .question-header svg {
+      width: 32px;
+      height: 32px;
+      color: var(--primary);
+    }
+    
+    .question-header h3 {
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--foreground);
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+      background: var(--background);
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+    }
+    
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    
+    .checkbox-group input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      accent-color: var(--accent);
+    }
+    
+    .checkbox-group label {
+      flex: 1;
+      margin-bottom: 0;
+      font-weight: normal;
+    }
+    
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .radio-option:hover {
+      border-color: var(--accent);
+      background: rgba(255, 215, 0, 0.05);
+    }
+    
+    .radio-option input[type="radio"] {
+      accent-color: var(--accent);
+    }
+    
+    .required { color: var(--destructive); }
+
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    
+    .btn-accent {
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, var(--accent), hsl(40, 90%, 45%));
+      color: var(--navy);
+      border-radius: var(--radius);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    
+    .btn-accent:hover {
+      transform: scale(1.05);
+    }
+    
+    .btn-outline {
+      padding: 1rem 2rem;
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    
+    .btn-outline:hover {
+      background: rgba(0, 51, 102, 0.05);
+      border-color: var(--accent);
+    }
+
+    /* Status Messages */
+    .status-message {
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      margin: 2rem 0;
+      display: none;
+    }
+    
+    .status-message.success {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      color: var(--success);
+      display: block;
+    }
+    
+    .status-message.error {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      color: var(--destructive);
+      display: block;
+    }
+
+    /* Footer */
+    .footer { background: var(--navy); color: var(--primary-foreground); padding: 4rem 0 2rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer p { color: rgba(255, 255, 255, 0.6); font-size: 0.875rem; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: rgba(255, 255, 255, 0.6); font-size: 0.875rem; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--accent); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .btn-group { flex-direction: column; }
+      .question-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .question-header svg { width: 28px; height: 28px; }
+      .privacy-notice-box { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-text">Lecz(U) Ltd</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="umoja.html">Umoja Campaign</a></li>
+        <li><a href="synthetic-soul.html">Synthetic Soul</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">Apply Now</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="badge">Privacy Policy</span>
+      <h1>Data Protection <span class="text-gradient">Questionnaire</span></h1>
+      <p>Your privacy is our priority. Please review our privacy policy and complete this brief questionnaire.</p>
+    </div>
+  </section>
+
+  <!-- Questionnaire Section -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Important Notice</span>
+        <h2>Our Privacy Commitment</h2>
+        <p>We value your trust and are committed to protecting your personal information</p>
+      </div>
+
+      <div class="questionnaire-container">
+        <!-- Privacy Notice Box -->
+        <div class="privacy-notice-box">
+          <h3>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            Key Privacy Points
+          </h3>
+          <p style="color: var(--foreground); margin-bottom: 1rem;">
+            By using our services and submitting this form, you acknowledge and agree to the following:
+          </p>
+          <ul class="privacy-points">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span><strong class="highlight">Your information is kept and used only by our company</strong> - Lecz(U) Ltd. We do not give or sell your data to anyone.</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span><strong class="highlight">No accounts to protect</strong> - Since there is no Signing In or Login In system, we don't store sensitive account credentials.</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span><strong class="highlight">Credentials safety</strong> - Your credentials submitted during the UMOJA APPLICATION PROCESS are not given or sold to anyone.</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span><strong class="highlight">Contact purposes only</strong> - We may use your WhatsApp, Phone number or Email to contact you about your application or for future updates.</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span><strong class="highlight">Mutual marketing benefit</strong> - By participating, you enable cross-visibility with other businesses in our network.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Status Messages -->
+        <div id="successMessage" class="status-message success" style="display: none;">
+          <strong>Thank you!</strong> Your privacy policy acknowledgment has been successfully submitted. We'll contact you if needed.
+        </div>
+        
+        <div id="errorMessage" class="status-message error" style="display: none;">
+          <strong>Error!</strong> There was a problem submitting your form. Please try again or contact us directly.
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p>© 2025 Lecz(U) Limited. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="privacy_policy.html">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+</body>
+</html>

@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecz(U) Limited | Building Today, Engineering Tomorrow</title>
+  <meta name="description" content="Bridging Uganda's digital divide through the Umoja Campaign while pioneering ethical artificial consciousness.">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: hsl(210, 25%, 97%);
+      --foreground: hsl(210, 50%, 10%);
+      --card: hsl(0, 0%, 100%);
+      --primary: hsl(210, 100%, 20%);
+      --primary-foreground: hsl(0, 0%, 100%);
+      --secondary: hsl(210, 40%, 96%);
+      --muted: hsl(210, 20%, 94%);
+      --muted-foreground: hsl(210, 20%, 45%);
+      --accent: hsl(45, 100%, 50%);
+      --accent-foreground: hsl(210, 100%, 15%);
+      --border: hsl(210, 20%, 88%);
+      --navy: hsl(210, 100%, 12%);
+      --deep-blue: hsl(210, 100%, 20%);
+      --deep-blue-light: hsl(210, 80%, 35%);
+      --gold: hsl(45, 100%, 50%);
+      --radius: 0.75rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo img {
+      height: 48px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--primary-foreground);
+      transition: color 0.3s;
+    }
+
+    .navbar.scrolled .logo-text {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      transition: color 0.3s;
+    }
+
+    .navbar.scrolled .nav-links a {
+      color: var(--foreground);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, var(--gold), hsl(40, 90%, 45%));
+      color: var(--navy);
+      border-radius: var(--radius);
+      font-weight: 600;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+    }
+
+    .nav-cta:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 30px rgba(255, 215, 0, 0.5);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--primary-foreground);
+      margin: 5px 0;
+      transition: all 0.3s;
+    }
+
+    .navbar.scrolled .mobile-menu-btn span {
+      background: var(--foreground);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, var(--navy) 0%, var(--deep-blue) 100%);
+      padding-top: 80px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.6;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 26, 51, 0.8) 0%, rgba(0, 51, 102, 0.7) 50%, rgba(0, 26, 51, 0.9) 100%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 215, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 215, 0, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 900px;
+      padding: 2rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 215, 0, 0.2);
+      color: var(--accent);
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 0.8s ease forwards;
+      animation-delay: 0.2s;
+      opacity: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      color: var(--primary-foreground);
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 0.8s ease forwards;
+      animation-delay: 0.4s;
+      opacity: 0;
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, var(--gold), hsl(40, 90%, 45%));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      animation: fadeInUp 0.8s ease forwards;
+      animation-delay: 0.6s;
+      opacity: 0;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease forwards;
+      animation-delay: 0.8s;
+      opacity: 0;
+    }
+
+    .btn-accent {
+      padding: 0.875rem 1.75rem;
+      background: linear-gradient(135deg, var(--gold), hsl(40, 90%, 45%));
+      color: var(--navy);
+      border-radius: var(--radius);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-accent:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 30px rgba(255, 215, 0, 0.5);
+    }
+
+    .btn-outline {
+      padding: 0.875rem 1.75rem;
+      background: transparent;
+      color: var(--primary-foreground);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: var(--radius);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-primary {
+      padding: 0.875rem 1.75rem;
+      background: var(--primary);
+      color: var(--primary-foreground);
+      border-radius: var(--radius);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 20px rgba(0, 51, 102, 0.3);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05);
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+      animation: fadeInUp 0.8s ease forwards;
+      animation-delay: 1s;
+      opacity: 0;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .stat-label {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.5rem;
+    }
+
+    /* Scroll Indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-indicator div {
+      width: 24px;
+      height: 40px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 100px;
+      display: flex;
+      justify-content: center;
+      padding-top: 8px;
+    }
+
+    .scroll-indicator span {
+      width: 6px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 100px;
+    }
+
+    /* Sections */
+    .section {
+      padding: 6rem 0;
+    }
+
+    .section-dark {
+      background: linear-gradient(180deg, var(--navy) 0%, var(--deep-blue) 100%);
+      color: var(--primary-foreground);
+    }
+
+    .section-light {
+      background: var(--background);
+    }
+
+    .section-alt {
+      background: var(--secondary);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-badge {
+      display: inline-block;
+      padding: 0.375rem 1rem;
+      background: rgba(0, 51, 102, 0.1);
+      color: var(--primary);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .section-dark .section-badge {
+      background: rgba(255, 215, 0, 0.2);
+      color: var(--accent);
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      color: var(--muted-foreground);
+      font-size: 1.125rem;
+    }
+
+    .section-dark .section-header p {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Value Props */
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .value-card {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .value-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .value-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 0.75rem;
+      background: rgba(0, 51, 102, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .value-icon svg {
+      width: 28px;
+      height: 28px;
+      color: var(--primary);
+    }
+
+    .value-card:hover .value-icon {
+      background: rgba(255, 215, 0, 0.2);
+    }
+
+    .value-card:hover .value-icon svg {
+      color: var(--accent);
+    }
+
+    .value-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--foreground);
+    }
+
+    .value-card p {
+      color: var(--muted-foreground);
+      line-height: 1.7;
+    }
+
+    .value-card .learn-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      font-weight: 500;
+      margin-top: 1.5rem;
+      transition: gap 0.3s;
+    }
+
+    .value-card:hover .learn-more {
+      gap: 0.75rem;
+    }
+
+    /* Umoja Preview */
+    .umoja-preview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .umoja-content h2 {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .umoja-content p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .feature-item svg {
+      width: 20px;
+      height: 20px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .umoja-card {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(51, 102, 153, 0.1));
+      border-radius: 1.5rem;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .umoja-card-inner {
+      background: var(--card);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      color: var(--foreground);
+    }
+
+    .umoja-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .umoja-card-header h4 {
+      font-weight: 600;
+      font-size: 1.125rem;
+    }
+
+    .save-badge {
+      background: rgba(255, 215, 0, 0.2);
+      color: hsl(40, 90%, 40%);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .price-row:last-child {
+      border-bottom: none;
+    }
+
+    .price-row span:first-child {
+      color: var(--muted-foreground);
+    }
+
+    .price-row .price {
+      font-weight: 700;
+      color: hsl(40, 90%, 40%);
+    }
+
+    .price-row .old-price {
+      color: var(--muted-foreground);
+      text-decoration: line-through;
+      font-size: 0.875rem;
+      margin-left: 0.5rem;
+    }
+
+    /* Quote Section */
+    .quote-section {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .quote-mark {
+      font-size: 6rem;
+      color: rgba(255, 215, 0, 0.2);
+      font-family: 'Playfair Display', serif;
+      line-height: 1;
+      margin-bottom: -3rem;
+    }
+
+    blockquote {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--foreground);
+      line-height: 1.5;
+    }
+
+    .quote-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .quote-author img {
+      width: 256px;
+      height: 256px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+    }
+
+    .quote-author-info {
+      text-align: left;
+    }
+
+    .quote-author-info strong {
+      display: block;
+      color: var(--foreground);
+    }
+
+    .quote-author-info span {
+      color: var(--muted-foreground);
+      font-size: 0.875rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.125rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--navy);
+      color: var(--primary-foreground);
+      padding: 4rem 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 3rem;
+      padding-bottom: 4rem;
+    }
+
+    .footer-brand p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.875rem;
+      margin: 1rem 0 1.5rem;
+      line-height: 1.7;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .social-links a:hover {
+      background: var(--accent);
+      color: var(--accent-foreground);
+    }
+
+    .footer h4 {
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9375rem;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .footer-contact-item svg {
+      width: 20px;
+      height: 20px;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-contact-item span {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.875rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .newsletter-form input {
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius);
+      color: var(--primary-foreground);
+      font-size: 0.9375rem;
+    }
+
+    .newsletter-form input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .newsletter-form input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bottom p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.875rem;
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-legal a {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.875rem;
+      transition: color 0.3s;
+    }
+
+    .footer-legal a:hover {
+      color: var(--accent);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      40% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+      60% {
+        transform: translateX(-50%) translateY(-5px);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .umoja-preview {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar  -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">
+        <!-- <img src="../src/assets/logo.png" alt="Lecz(U) Limited" onerror="this.style.display='none'"> -->
+        <span class="logo-text">Lecz(U) Ltd</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="umoja.html">Umoja Campaign</a></li>
+        <li><a href="synthetic-soul.html">Synthetic Soul</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="umoja.html" class="nav-cta">Join Umoja</a>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="../src/assets/hero-bg.jpg" alt="Technology meets tradition" onerror="this.parentElement.style.display='none'">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-grid"></div>
+    
+    <div class="hero-content">
+      <span class="hero-badge">Building Today, Engineering Tomorrow</span>
+      <h1>Bridging Uganda's Present <span class="text-gradient">with the World's Future</span></h1>
+      <p>We democratize digital access across Uganda while pioneering ethical artificial consciousness for global benefit.</p>
+      <div class="hero-buttons">
+        <a href="umoja.html" class="btn-accent">
+          Join Umoja Campaign
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="synthetic-soul.html" class="btn-outline">Explore Our Research</a>
+      </div>
+      
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-value" data-target="500">0</div>
+          <div class="stat-label">Businesses To Be Digitized</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" data-target="10000">0</div>
+          <div class="stat-label">AI Research Hours Planned</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" data-target="5">0</div>
+          <div class="stat-label">Current But Growing Team Members</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" data-target="1">0</div>
+          <div class="stat-label">Mbarara Physical Offices</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="scroll-indicator">
+      <div><span></span></div>
+    </div>
+  </section>
+
+  <!-- Value Proposition Section -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">What We Do</span>
+        <h2>Innovation Rooted in Purpose</h2>
+        <p>We're building technology that serves both local communities and global progress.</p>
+      </div>
+      
+      <div class="value-grid">
+        <a href="umoja.html" class="value-card">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>Digitizing Uganda</h3>
+          <p>Making professional Websites and  Mobile apps(IOS/Android) accessible and affordable for every Ugandan business through our Umoja Campaign.</p>
+          <span class="learn-more">
+            Learn more
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+        
+        <a href="synthetic-soul.html" class="value-card">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a9 9 0 0 0-9 9c0 4.17 2.84 7.67 6.69 8.69a.5.5 0 0 0 .62-.45V17.5a.5.5 0 0 0-.5-.5H8.5a.5.5 0 0 1-.4-.8l3-4a.5.5 0 0 1 .8 0l3 4a.5.5 0 0 1-.4.8h-1.31a.5.5 0 0 0-.5.5v1.74a.5.5 0 0 0 .62.45A9 9 0 0 0 12 2z"/></svg>
+          </div>
+          <h3>Pioneering Consciousness</h3>
+          <p>Researching ethical artificial consciousness through our groundbreaking Synthetic Soul project.</p>
+          <span class="learn-more">
+            Learn more
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+        
+        <a href="about.html" class="value-card">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h3>Sustainable Growth</h3>
+          <p>Building technology solutions rooted in local context while maintaining global standards and ethics.</p>
+          <span class="learn-more">
+            Learn more
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Umoja Preview Section -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="umoja-preview">
+        <div class="umoja-content">
+          <span class="section-badge">Umoja Campaign</span>
+          <h2>Connecting Every Ugandan Business to the <span class="text-gradient">Digital Economy</span></h2>
+          <p>Professional websites and Mobile apps(IOS/Android) for just 500,000 UGX — an 83% reduction from market average. Lifetime hosting included(To be clear- You will never worry about Monthly Costs).</p>
+          
+          <div class="feature-list">
+            <div class="feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Website +  Mobile apps(IOS/Android)</span>
+            </div>
+            <div class="feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Lifetime Hosting Included</span>
+            </div>
+            <div class="feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>3 Years Free Technical Support</span>
+            </div>
+            <div class="feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Mobile Payment Integration</span>
+            </div>
+            <div class="feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Group Marketplace Access</span>
+            </div>
+            <div class="feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>2-Day Onsite Training</span>
+            </div>
+          </div>
+          
+          <a href="umoja.html" class="btn-accent">
+            Apply Now
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        
+        <div class="umoja-card">
+          <div class="umoja-card-inner">
+            <div class="umoja-card-header">
+              <h4>Umoja vs Standard</h4>
+              <span class="save-badge">Save 92%</span>
+            </div>
+            <div class="price-row">
+              <span>Website +  Mobile apps(IOS/Android)</span>
+              <div>
+                <span class="price">500k UGX</span>
+                <span class="old-price">6M UGX</span>
+              </div>
+            </div>
+            <div class="price-row">
+              <span>Monthly Hosting</span>
+              <div>
+                <span class="price">FREE</span>
+                <span class="old-price">40k-700k</span>
+              </div>
+            </div>
+            <div class="price-row">
+              <span>Tech Support</span>
+              <div>
+                <span class="price">3 Years Free</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Section -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="quote-section">
+        <div class="quote-mark">"</div>
+        <blockquote>We build for today while engineering for tomorrow. Sustainable technological growth must be rooted in local context.</blockquote>
+        <div class="quote-author">
+          <img src="images/laban.jpg" alt="Mr. Omenyo Laban" onerror="this.style.display='none'">
+          <div class="quote-author-info">
+            <strong>Mr. Omenyo Laban</strong>
+            <span>CEO & Co-Founder</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="cta-section">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>Join the Umoja Campaign today and take your business online for a fraction of the cost.</p>
+        <div class="cta-buttons">
+          <a href="umoja.html" class="btn-accent">
+            Apply for Umoja
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="contact.html" class="btn-outline">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="../src/assets/logo.png" alt="Lecz(U) Limited" style="height: 48px;" onerror="this.style.display='none'">
+          </a>
+          <p>Building Today, Engineering Tomorrow. Bridging Uganda's digital divide while pioneering ethical artificial consciousness.</p>
+          <div class="social-links">
+            <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+            <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+            <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="umoja.html">Umoja Campaign</a></li>
+            <li><a href="synthetic-soul.html">Synthetic Soul</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4>Contact Us</h4>
+          <div class="footer-contact">
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Gulu, Uganda<br>Mbarara Branch: Western Uganda</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+256 700 000 000</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>info@lecz.co.ug</span>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <h4>Stay Updated</h4>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.875rem; margin-bottom: 1rem;">Subscribe to our newsletter for updates on digital transformation and AI research.</p>
+          <form class="newsletter-form" onsubmit="return false;">
+            <input type="email" placeholder="Your email address">
+            <button type="submit" class="btn-accent" style="width: 100%; justify-content: center;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2025 Lecz(U) Limited. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Animated counters
+    function animateCounters() {
+      const counters = document.querySelectorAll('.stat-value');
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000;
+        const start = 0;
+        const increment = target / (duration / 16);
+        let current = start;
+        
+        const updateCounter = () => {
+          current += increment;
+          if (current < target) {
+            counter.textContent = Math.floor(current).toLocaleString() + '+';
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = target.toLocaleString() + '+';
+          }
+        };
+        
+        updateCounter();
+      });
+    }
+
+    // Intersection observer for animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stats').forEach(el => observer.observe(el));
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      alert('Mobile menu would open here');
+    }
+  </script>
+</body>
+</html>

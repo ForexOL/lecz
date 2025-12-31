@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions Acceptance | Umoja Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: hsl(210, 25%, 97%);
+            --foreground: hsl(210, 50%, 10%);
+            --card: hsl(0, 0%, 100%);
+            --primary: hsl(210, 100%, 20%);
+            --primary-foreground: hsl(0, 0%, 100%);
+            --secondary: hsl(210, 40%, 96%);
+            --muted: hsl(210, 20%, 94%);
+            --muted-foreground: hsl(210, 20%, 45%);
+            --accent: hsl(45, 100%, 50%);
+            --accent-foreground: hsl(210, 100%, 15%);
+            --border: hsl(210, 20%, 88%);
+            --navy: hsl(210, 100%, 12%);
+            --deep-blue: hsl(210, 100%, 20%);
+            --destructive: hsl(0, 84%, 60%);
+            --success: hsl(142, 76%, 36%);
+            --radius: 0.75rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            background: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+        }
+        /* Navbar */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 2rem; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); border-bottom: 1px solid var(--border); }
+        .navbar-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; max-width: 1400px; margin: 0 auto; }
+        .logo { display: flex; align-items: center; gap: 0.75rem; }
+        .logo img { height: 48px; width: auto; }
+        .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.25rem; color: var(--primary); }
+        .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+        .nav-links a { font-weight: 500; color: var(--foreground); transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-cta { padding: 0.75rem 1.5rem; background: linear-gradient(135deg, var(--accent), hsl(40, 90%, 45%)); color: var(--navy); border-radius: var(--radius); font-weight: 600; }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 0 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            /*border-bottom: 1px solid var(--border);*/
+        }
+
+        .navbar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        /* Hero */
+        .page-hero {
+            padding: 8rem 0 5rem;
+            background: linear-gradient(180deg, var(--navy) 0%, var(--deep-blue) 100%);
+            color: var(--primary-foreground);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255, 215, 0, 0.03) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(255, 215, 0, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.3;
+        }
+
+        .page-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--accent);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--accent), hsl(40, 90%, 45%));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Section */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--muted-foreground);
+            font-size: 1.125rem;
+        }
+
+        /* Terms Card */
+        .terms-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .terms-card h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .terms-content {
+            max-height: 800px;
+            overflow-y: auto;
+            padding: 1.5rem;
+            background: var(--secondary);
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .terms-content p {
+            margin-bottom: 1rem;
+        }
+
+        .terms-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .terms-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Questionnaire */
+        .questionnaire {
+            background: var(--card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            padding: 2rem;
+        }
+
+        .question-group {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-group:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .question-group h4 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .question {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: var(--secondary);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .question-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--foreground);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent);
+        }
+
+        /* Business Info */
+        .business-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--foreground);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 1rem;
+            background: var(--card);
+            color: var(--foreground);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), hsl(40, 90%, 45%));
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--foreground);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--muted);
+        }
+
+        .btn-disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 3rem;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        .modal-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--success);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        .modal-icon.error {
+            background: var(--destructive);
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer */
+        .footer { background: var(--navy); color: var(--primary-foreground); padding: 4rem 0 2rem; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer p { color: rgba(255, 255, 255, 0.6); font-size: 0.875rem; }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a { color: rgba(255, 255, 255, 0.6); font-size: 0.875rem; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--accent); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .business-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .radio-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+        <a href="index.html" class="logo">
+            <!--<img src="../src/assets/logo.png" alt="Lecz(U) Limited" onerror="this.style.display='none'"> -->
+            <span class="logo-text">Lecz(U) Ltd</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="umoja.html">Umoja Campaign</a></li>
+            <li><a href="synthetic-soul.html">Synthetic Soul</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="applications.html" class="nav-cta">Apply Now</a>
+        </div>
+    </nav>
+
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <span class="badge">Terms & Conditions Acceptance</span>
+            <h1>Umoja Project <span class="text-gradient">Terms & Conditions</span></h1>
+            <p>Please carefully review and acknowledge the terms below to proceed with your Umoja project application</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Project Terms & Agreement</h2>
+                <p>To ensure transparency and mutual understanding, please confirm your acceptance of the following terms</p>
+            </div>
+
+            <!-- Terms Card -->
+            <div class="terms-card">
+                <h3>Umoja Project Key Terms</h3>
+                <div class="terms-content">
+                    <p><strong>Dear Valued Business Owner,</strong></p>
+                    
+                    <p>Welcome to the Umoja Project by Lecz(U) Limited. Our mission is to make professional websites and mobile applications accessible and affordable for all Ugandan businesses. To achieve this revolutionary pricing model, we have implemented specific terms that benefit both your business and our project sustainability.</p>
+                    
+                    <h4>Critical Project Terms:</h4>
+                    <ul>
+                        <li><strong>Strategic Advertising:</strong> We will place strategic advertisements on all websites under our Umoja project for 3 years starting from the publishing date. This advertising model is what enables us to offer the complete website and mobile app package at the significantly reduced price of 500,000 UGX.</li>
+                        
+                        <li><strong>Pricing Model:</strong> This innovative approach was conceived by our CEO. Laban Omenyo, based on extensive market experience. Traditional website development costs 1.5M UGX minimum, while adding mobile applications increases this to at least 3M UGX - amounts prohibitive for most Ugandan SMEs.</li>
+                        
+                        <li><strong>Network Benefits:</strong> By joining Umoja, your business becomes part of an interconnected network:
+                            <ul>
+                                <li>No monthly server costs - lifetime hosting included</li>
+                                <li>All Umoja businesses are featured on UgandaBusinessConnect.ug</li>
+                                <li>Cross-promotion and maximum visibility across the network</li>
+                                <li>Shared marketplace for increased customer traffic</li>
+                            </ul>
+                        </li>
+                        
+                        <li><strong>Project Timeline:</strong> Websites are delivered first (within 3-4 weeks), followed by Android applications, with iOS applications delivered last. All applications are displayed on our platform for easy download access.</li>
+                        
+                        <li><strong>Marketing Integration:</strong> Each website includes a marketplace link connecting all Umoja businesses, creating a 10x-100x increase in visibility through mutual promotion.</li>
+                    </ul>
+                    
+                    <p><strong>Data Protection:</strong> All information collected will be used solely for project implementation and will not be shared with third parties without consent, except as required for service delivery.</p>
+                    
+                    <p>By accepting these terms, you acknowledge that the strategic advertising model is essential for the project's sustainability and your access to affordable digital solutions.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+        <div class="footer-inner">
+            <p>© 2025 Lecz(U) Limited. All rights reserved.</p>
+            <div class="footer-links">
+            <a href="privacy_policy.html">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+</body>
+</html>
